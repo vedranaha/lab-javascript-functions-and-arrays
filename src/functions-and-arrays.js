@@ -1,26 +1,72 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+console.log(maxOfTwoNumbers(6, 2));
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length == 0) {
+    return null;
+  } else {
+    let longest = '';
+    for (let i = 0; i < words.length; i++) {
+      if (words[i].length > longest.length) longest = words[i];
+    }
+    return longest;
+  }
+}
+console.log(findLongestWord(words));
 
-
-
-// Iteration #3: Calculate the sum
+//Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let total = 0;
+  numbers.forEach(function (number) {
+    total += number;
+  });
+  return total;
+}
+console.log(sumNumbers(numbers));
 
+// Iteration #3.1 Bonus:polymorphism - functions' input independently of the types they are passed as
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(mixedArr) {
+  if (mixedArr.length == 0 || mixedArr == 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < mixedArr.length; i++) {
+      console.log(`Index: ${i} - element ${mixedArr[i]}`);
+    }
+  }
+}
+console.log(sum(mixedArr));
 
-// Iteration #3.1 Bonus:
-function sum() {}
-
-
+function add(mixedArr) {
+  var total = 0;
+  if (mixedArr.length === 0) return 0;
+  for (var i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'string') {
+      total += mixedArr[i].length;
+    } else if (typeof mixedArr[i] === 'boolean') {
+      total += mixedArr[i] === true ? 1 : 0;
+    } else if (typeof mixedArr[i] === 'number') {
+      total += mixedArr[i];
+    } else {
+      throw Error('Unsupported data type');
+    }
+  }
+  return total;
+}
+console.log(add(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -28,11 +74,10 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers() {}
 
-
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength() {}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -54,14 +99,10 @@ const wordsUnique = [
 
 function uniquifyArray() {}
 
-
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist() {}
-
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -79,8 +120,6 @@ const wordsCount = [
 ];
 
 function howManyTimes() {}
-
-
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +146,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
